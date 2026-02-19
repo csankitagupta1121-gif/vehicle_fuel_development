@@ -41,10 +41,9 @@ df = pd.DataFrame({
     "car name":[carname]
 })
 
-
 if st.button("Predict"):
-  for col in encoder:
-    df[col] = encoder[col].transform(df[col])
 
-  prediction = model.predict(df)
-  st.success(f"Predicted vehicle: {prediction[0]:,.2f}")
+    df["car name"] = encoder["car name"].transform(df["car name"])
+
+    prediction = model.predict(df)
+    st.success(f"Predicted vehicle: {prediction[0]:,.2f}")
