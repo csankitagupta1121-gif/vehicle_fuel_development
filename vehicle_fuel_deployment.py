@@ -26,7 +26,7 @@ weight = st.number_input("weight", 0,40)
 acceleration = st.number_input("acceleration", 0,40)
 modelyear = st.number_input("model year", 0,40)
 origin = st.number_input("origin", 0,40)
-car name = st.selectbox("car name",encoder["car name"].classes_)
+carname = st.selectbox("car_name",encoder["car_name"].classes_)
 
 
 df = pd.dataFrame({
