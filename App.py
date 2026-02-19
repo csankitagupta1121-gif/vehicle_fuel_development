@@ -12,8 +12,8 @@ import pandas as pd
 import joblib
 
 
-model = joblib.load("vehicle_fuel_deployment.pkl")
-encoder = joblib.load("label_encoder.pkl")
+model = joblib.load("vehicle_fuel_effeciency.pkl")
+encoder = joblib.load("label_encoder (3).pkl")
 
 
 st.title("vehicle_fuel_deployment app")
