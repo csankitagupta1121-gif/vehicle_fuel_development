@@ -14,7 +14,7 @@ import joblib
 
 model = joblib.load("vehicle_fuel_effeciency.pkl")
 encoder = joblib.load("label_encoder (4).pkl")
-st.write(encoder.keys())
+
 
 
 st.title("vehicle_fuel_deployment app")
@@ -30,7 +30,7 @@ origin = st.number_input("origin", 0,40)
 carname = st.selectbox("car name",encoder["car name"].classes_)
 
 
-df = pd.dataFrame({
+df = pd.DataFrame({
     "cylinders":[cylinders],
     "displacement":[displacement],
     "horsepower":[horsepower],
