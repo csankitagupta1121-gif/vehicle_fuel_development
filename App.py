@@ -14,6 +14,7 @@ import joblib
 
 model = joblib.load("vehicle_fuel_effeciency.pkl")
 encoder = joblib.load("label_encoder (3).pkl")
+st.write(encoder.keys())
 
 
 st.title("vehicle_fuel_deployment app")
