@@ -46,4 +46,6 @@ if st.button("Predict"):
     df["car name"] = encoder["car name"].transform(df["car name"])
 
     prediction = model.predict(df)
+    _check_feature_names(estimator, X, reset=False)
+
     st.success(f"Predicted vehicle: {prediction[0]:,.2f}")
