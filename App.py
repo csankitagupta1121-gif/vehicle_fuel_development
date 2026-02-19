@@ -35,7 +35,7 @@ df = pd.dataFrame({
     "horsepower":[horsepower],
     "weight":[weight],
     "acceleration":[acceleration],
-    "model year":[model_year],
+    "model_year":[modelyear],
     "origin":[origin]
 })
 
