@@ -13,7 +13,7 @@ import joblib
 
 
 model = joblib.load("vehicle_fuel_effeciency.pkl")
-encoder = joblib.load("label_encoder (3).pkl")
+encoder = joblib.load("label_encoder (4).pkl")
 st.write(encoder.keys())
 
 
