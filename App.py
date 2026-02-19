@@ -53,46 +53,4 @@ if st.button("Predict MPG"):
 
     st.success(f"Predicted MPG: {prediction[0]:.2f}")
 
-'''
-import streamlit as st
-import pandas as pd
-import joblib
 
-
-model = joblib.load("vehicle_fuel_effeciency.pkl")
-encoder = joblib.load("label_encoder (4).pkl")
-
-
-
-st.title("vehicle_fuel_deployment app")
-
-
-cylinders = st.number_input("cylinders")
-displacement = st.number_input("displacement")
-horsepower = st.number_input("horsepower")
-weight = st.number_input("weight", 0,40)
-acceleration = st.number_input("acceleration", 0,40)
-modelyear = st.number_input("model_year", 0,40)
-origin = st.number_input("origin", 1,40)
-carname = st.selectbox("car name",encoder["car name"].classes_)
-
-
-df = pd.DataFrame({
-    "cylinders":[cylinders],
-    "displacement":[displacement],
-    "horsepower":[horsepower],
-    "weight":[weight],
-    "acceleration":[acceleration],
-    "model_year":[modelyear],
-    "origin":[origin],
-    "car name":[carname]
-})
-
-if st.button("Predict"):
-
-    df["car name"] = encoder["car name"].transform(df["car name"])
-
-    prediction = model.predict(df)
-    _check_feature_names(estimator, X, reset=False)
-
-    st.success(f"Predicted vehicle: {prediction[0]:,.2f}") '''
