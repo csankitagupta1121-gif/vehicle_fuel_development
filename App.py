@@ -11,6 +11,53 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+# Load model and encoder
+model = joblib.load("vehicle_fuel_effeciency.pkl")
+encoder = joblib.load("label_encoder (4).pkl")
+
+st.title("Vehicle Fuel Efficiency Prediction App")
+
+st.write("Enter vehicle details to predict MPG")
+
+# Numeric Inputs
+cylinders = st.number_input("Cylinders", min_value=1, max_value=16, step=1)
+displacement = st.number_input("Displacement")
+horsepower = st.number_input("Horsepower")
+weight = st.number_input("Weight")
+acceleration = st.number_input("Acceleration")
+modelyear = st.number_input("Model Year", min_value=70, max_value=100, step=1)
+origin = st.selectbox("Origin", [1, 2, 3])  # 1=USA, 2=Europe, 3=Japan
+
+# Car Name Dropdown (from encoder classes)
+carname = st.selectbox("Car Name", encoder["car name"].classes_)
+
+# Create dataframe (COLUMN NAMES MUST MATCH TRAINING EXACTLY)
+df = pd.DataFrame({
+    "cylinders": [cylinders],
+    "displacement": [displacement],
+    "horsepower": [horsepower],
+    "weight": [weight],
+    "acceleration": [acceleration],
+    "model year": [modelyear],   # space important
+    "origin": [origin],
+    "car name": [carname]        # space important
+})
+
+# Predict
+if st.button("Predict MPG"):
+
+    # Encode only car name
+    df["car name"] = encoder["car name"].transform(df["car name"])
+
+    prediction = model.predict(df)
+
+    st.success(f"Predicted MPG: {prediction[0]:.2f}")
+
+'''
+import streamlit as st
+import pandas as pd
+import joblib
+
 
 model = joblib.load("vehicle_fuel_effeciency.pkl")
 encoder = joblib.load("label_encoder (4).pkl")
@@ -48,4 +95,4 @@ if st.button("Predict"):
     prediction = model.predict(df)
     _check_feature_names(estimator, X, reset=False)
 
-    st.success(f"Predicted vehicle: {prediction[0]:,.2f}")
+    st.success(f"Predicted vehicle: {prediction[0]:,.2f}") '''
