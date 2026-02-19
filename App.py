@@ -26,7 +26,7 @@ horsepower = st.number_input("horsepower")
 weight = st.number_input("weight", 0,40)
 acceleration = st.number_input("acceleration", 0,40)
 modelyear = st.number_input("model_year", 0,40)
-origin = st.number_input("origin", 0,40)
+origin = st.number_input("origin", 1,40)
 carname = st.selectbox("car name",encoder["car name"].classes_)
 
 
