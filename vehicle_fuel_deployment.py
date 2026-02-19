@@ -12,7 +12,7 @@ import pandas as pd
 import joblib
 
 
-model = joblib.load("vehicle_fuel_deployment.pkl")
+model = joblib.load("vehicle_fuel_development.pkl")
 encoder = joblib.load("label_encoder.pkl")
 
 
