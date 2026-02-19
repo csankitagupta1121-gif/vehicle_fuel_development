@@ -24,9 +24,9 @@ displacement = st.number_input("displacement")
 horsepower = st.number_input("horsepower")
 weight = st.number_input("weight", 0,40)
 acceleration = st.number_input("acceleration", 0,40)
-model year = st.number_input("model year", 0,40)
+modelyear = st.number_input("model_year", 0,40)
 origin = st.number_input("origin", 0,40)
-car name = st.selectbox("car name",encoder["car name"].classes_)
+carname = st.selectbox("car name",encoder["car_name"].classes_)
 
 
 df = pd.dataFrame({
@@ -35,7 +35,7 @@ df = pd.dataFrame({
     "horsepower":[horsepower],
     "weight":[weight],
     "acceleration":[acceleration],
-    "model year":[model year],
+    "model year":[model_year],
     "origin":[origin]
 })
 
